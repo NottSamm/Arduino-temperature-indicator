@@ -4,13 +4,13 @@
 
 %% PRELIMINARY TASK - ARDUINO AND GIT INSTALLATION [10 MARKS]
 
-clear
-a = arduino("COM5","Uno");
-for n=1:10
-    writeDigitalPin(a,'D4',1);
-    pause(0.5);
-    writeDigitalPin(a,'D4',0);
-    pause(0.5)
+clear %clear workspace
+a = arduino("COM5","Uno"); %create reference to arduino
+for n=1:10 %repeat 10 times
+    writeDigitalPin(a,'D4',1); %turn on LED connected to channel 4
+    pause(0.5); %wait for half of a second
+    writeDigitalPin(a,'D4',0); %turn LED connected to channel 4 off
+    pause(0.5) %wait for a half second
 end
 
 %% TASK 1 - READ TEMPERATURE DATA, PLOT, AND WRITE TO A LOG FILE [20 MARKS]
