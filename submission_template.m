@@ -17,9 +17,9 @@ end
 
 clear
 a = arduino("COM5","Uno");
-duration = 10;
+duration = 600;
 temperatureV = linspace(0,0,duration);
-n = 0
+n = 0;
 while duration > 0
     n = n + 1;
     recordedV = readVoltage(a,'A2');
@@ -31,6 +31,11 @@ while duration > 0
     temperatureV(n) = correctedV;
     pause(1);
 end
+
+minimumTemp = min(temperatureV);
+maximumTemp = max(temperatureV);
+averageTemp = mean(temperatureV);
+disp(sprintf('The minimum temperature is %d degrees, the maximum is %d degrees, and the average is %d degrees.',round(minimumTemp),round(maximumTemp),round(averageTemp)));
 
 %% TASK 2 - LED TEMPERATURE MONITORING DEVICE IMPLEMENTATION [25 MARKS]
 
