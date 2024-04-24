@@ -15,16 +15,20 @@ end
 
 %% TASK 1 - READ TEMPERATURE DATA, PLOT, AND WRITE TO A LOG FILE [20 MARKS]
 
-duration = 60;
-temperatureV = [];
+clear
+a = arduino("COM5","Uno");
+duration = 10;
+temperatureV = linspace(0,0,duration);
+n = 0
 while duration > 0
+    n = n + 1;
     recordedV = readVoltage(a,'A2');
     duration = duration - 1;
     V0 = 0.5;
     Tc = 0.01;
     correctedV = recordedV - V0;
     correctedV = correctedV/Tc;
-    temperatureV(length(temperatureV) + 1) = correctedV;
+    temperatureV(n) = correctedV;
     pause(1);
 end
 
