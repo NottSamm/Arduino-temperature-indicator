@@ -18,7 +18,7 @@ end
 duration = 60;
 temperatureV = [];
 while duration > 0
-    recordedV = read(a,1,uint32);
+    recordedV = readVoltage(a,'A2');
     duration = duration - 1;
     V0 = 0.5;
     Tc = 0.01;
