@@ -15,7 +15,18 @@ end
 
 %% TASK 1 - READ TEMPERATURE DATA, PLOT, AND WRITE TO A LOG FILE [20 MARKS]
 
-% Insert answers here
+duration = 60;
+temperatureV = [];
+while duration > 0
+    recordedV = read(a,1,uint32);
+    duration = duration - 1;
+    V0 = 0.5;
+    Tc = 0.01;
+    correctedV = recordedV - V0;
+    correctedV = correctedV/Tc;
+    temperatureV(length(temperatureV) + 1) = correctedV;
+    pause(1);
+end
 
 %% TASK 2 - LED TEMPERATURE MONITORING DEVICE IMPLEMENTATION [25 MARKS]
 
