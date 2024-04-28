@@ -17,7 +17,7 @@ end
 
 clear
 a = arduino("COM5","Uno");
-duration = 600;
+duration = 20;
 temperatureV = linspace(0,0,duration);
 n = 0;
 while duration > 0
@@ -36,6 +36,14 @@ minimumTemp = min(temperatureV);
 maximumTemp = max(temperatureV);
 averageTemp = mean(temperatureV);
 disp(sprintf('The minimum temperature is %d degrees, the maximum is %d degrees, and the average is %d degrees.',round(minimumTemp),round(maximumTemp),round(averageTemp)));
+
+figure(1);
+plot(temperatureV);
+xlabel('time (s)');
+ylabel('temperature (Celcius)');
+
+todayDate = datetime('today');
+dataLog = sprintf('Data logging initiated - %s\n Location - Nottingham\n\n',todayDate);
 
 %% TASK 2 - LED TEMPERATURE MONITORING DEVICE IMPLEMENTATION [25 MARKS]
 
