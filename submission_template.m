@@ -77,7 +77,19 @@ end
 
 %% TASK 3 - ALGORITHMS – TEMPERATURE PREDICTION [25 MARKS]
 
-% Insert answers here
+clear %clear workspace
+a = arduino("COM5","Uno"); %set up arduino
+n = 1; %set counter
+while true 
+    recordedV = readVoltage(a,'A2'); %Get voltage from sensor
+    V0 = 0.5; %from datasheet
+    Tc = 0.01;%from datasheet
+    correctedV = recordedV - V0;%These lines convert voltage to degrees
+    correctedV = correctedV/Tc; %These lines convert voltage to degrees
+    temperatureV(n) = correctedV; %append temperature to vector
+    n = n + 1; %increment counter
+    returner = temp_prediction(a,temperatureV,correctedV,n);
+end
 
 
 %% TASK 4 - REFLECTIVE STATEMENT [5 MARKS]
