@@ -51,7 +51,27 @@ fclose(fileHandler);
 
 %% TASK 2 - LED TEMPERATURE MONITORING DEVICE IMPLEMENTATION [25 MARKS]
 
-% Insert answers here
+clear
+a = arduino("COM5","Uno");
+n = 1;
+temperatureV = [];
+figure(2);
+plot(temperatureV);
+xlabel('time(s)');
+ylabel('temperature (degrees C)');
+ylim([15,27]);
+while true
+    recordedV = readVoltage(a,'A2');
+    V0 = 0.5;
+    Tc = 0.01;
+    correctedV = recordedV - V0;
+    correctedV = correctedV/Tc;
+    temperatureV(n) = correctedV;
+    n = n + 1;
+    temperatureNotch = temp_monitor(a, correctedV);
+    drawnow
+    pause(1)
+end
 
 
 %% TASK 3 - ALGORITHMS – TEMPERATURE PREDICTION [25 MARKS]
