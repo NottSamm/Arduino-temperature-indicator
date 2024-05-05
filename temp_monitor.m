@@ -20,5 +20,6 @@ function temperatureNotch = temp_monitor(a, recordedTemp)
     else
         writeDigitalPin(a, "D3", 1);
         temperatureNotch = 0;
+        pause(1);
     end
 end

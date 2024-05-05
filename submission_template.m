@@ -54,12 +54,6 @@ fclose(fileHandler);
 clear
 a = arduino("COM5","Uno");
 n = 1;
-temperatureV = [];
-figure(2);
-plot(temperatureV);
-xlabel('time(s)');
-ylabel('temperature (degrees C)');
-ylim([15,27]);
 while true
     recordedV = readVoltage(a,'A2');
     V0 = 0.5;
@@ -69,8 +63,11 @@ while true
     temperatureV(n) = correctedV;
     n = n + 1;
     temperatureNotch = temp_monitor(a, correctedV);
-    drawnow
-    pause(1)
+    figure(2)
+    plot(temperatureV)
+    xlabel('time(s)');
+    ylabel('temperature (degrees C)');
+    ylim([15,27]);
 end
 
 
