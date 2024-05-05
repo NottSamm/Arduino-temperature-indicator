@@ -94,4 +94,21 @@ end
 
 %% TASK 4 - REFLECTIVE STATEMENT [5 MARKS]
 
-% Insert answers here
+%There were a number of challenges faced when completing this project, the
+%most prevalent of which was trying to create a live graph. I couldn't
+%figure out how drawnow would affect a plot, since the documentation says
+%it was designed for animated lines. Eventually, I realised that by
+%making a figure, I could simply plot the graph repeatedly, and it would
+%update the same graph, instead of making a new one. I was also not
+%entirely sure how to get the temperature every minute from a vector that stored
+%temperature every second in task 1, and eventually settled for a system
+%that relies on there being at least 10 minutes worth of data collection.
+%This could be improved upon, to make it more flexible (possibly using
+%modulo arithmetic). The gradient program in task 3 does not provide an
+%accurate value for the predicted temperature, often returning disastrous
+%values, rendering that function rather limited. Further, in task 3, I
+%struggled to get more a gradient change of more than 0.2C. To test the
+%code, I checked for values of more than 0.1C. The code, however, is well
+%commented, and in task 1, the size of the vector is defined before the
+%loop executes, making execution more efficient. This was not possible for
+%the other tasks since they are designed to execute indefinitely.
